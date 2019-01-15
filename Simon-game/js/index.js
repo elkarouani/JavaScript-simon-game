@@ -130,6 +130,20 @@ function gameTurn() {
     }
 }
 
+function clearColor() {
+    topLeft.style.backgroundColor = "darkgreen";
+    topRight.style.backgroundColor = "darkred";
+    bottomleft.style.backgroundColor = "goldenrod";
+    bottomright.style.backgroundColor = "darkblue";
+}
+
+function flashColor() {
+    topLeft.style.backgroundColor = "lightgreen";
+    topRight.style.backgroundColor = "tomato";
+    bottomleft.style.backgroundColor = "yellow";
+    bottomright.style.backgroundColor = "lightskyblue";
+}
+
 function one() {
     if (noise) {
         let audio = document.getElementById("clip1");
@@ -166,28 +180,12 @@ function four() {
     bottomright.style.backgroundColor = 'lightskyblue';
 }
 
-function clearColor() {
-    topLeft.style.backgroundColor = "darkgreen";
-    topRight.style.backgroundColor = "darkred";
-    bottomleft.style.backgroundColor = "goldenrod";
-    bottomright.style.backgroundColor = "darkblue";
-}
-
-function flashColor() {
-    topLeft.style.backgroundColor = "lightgreen";
-    topRight.style.backgroundColor = "tomato";
-    bottomleft.style.backgroundColor = "yellow";
-    bottomright.style.backgroundColor = "lightskyblue";
-}
-
 function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1]) {
         good = false;
     }
 
-    if (playerOrder.length == 20 && good) {
-        winGame();
-    }
+    if (playerOrder.length == 20 && good) {winGame();}
 
     if (good == false) {
         flashColor();
