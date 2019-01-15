@@ -36,3 +36,88 @@ onButton.addEventListener('click', (event) => {
 startButton.addEventListener('click', (event) => {
     if(on || win) {play();}
 });
+
+function play() {
+    win = false;
+    order = [];
+    playerOrder = [];
+    flash = 0;
+    intervalId = 0;
+    turn = 1;
+    turnCounter.innerHTML = 1;
+    good = true;
+
+    for (var i = 0; i < 20; i++) {
+        order.push(Math.floor(Math.random() * 4) + 1);
+    }
+
+    compTurn = true;
+
+    intervalId = setInterval(gameTurn, 800); 
+}
+
+function gameTurn() {
+    on = false;
+
+    if (flash == turn) {
+        clearInterval(intervalId);
+        compTurn = false;
+        clearColor();
+        on = true;
+    }
+
+    if(compTurn) {
+        clearColor();
+        setTimeout(() => {
+            if(order[flash] == 1) one();
+            if(order[flash] == 2) two();
+            if(order[flash] == 3) three();
+            if(order[flash] == 4) four();
+            flash++;
+        }, 200);
+    }
+}
+
+function one() {
+    if (noise) {
+        let audio = document.getElementById("clip1");
+        audio.play();
+    }
+    noise = true;
+    topLeft.style.backgroundColor = 'lightgreen';
+}
+
+function two() {
+    if (noise) {
+        let audio = document.getElementById("clip2");
+        audio.play();
+    }
+    noise = true;
+    topRight.style.backgroundColor = 'tomato';
+}
+
+function three() {
+    if (noise) {
+        let audio = document.getElementById("clip3");
+        audio.play();
+    }
+    noise = true;
+    bottomleft.style.backgroundColor = 'yellow';
+}
+
+function four() {
+    if (noise) {
+        let audio = document.getElementById("clip4");
+        audio.play();
+    }
+    noise = true;
+    bottomright.style.backgroundColor = 'lightskyblue';
+}
+
+function clearColor() {
+    topLeft.style.backgroundColor = "darkgreen";
+    topRight.style.backgroundColor = "darkred";
+    bottomleft.style.backgroundColor = "goldenrod";
+    bottomright.style.backgroundColor = "darkblue";
+}
+
