@@ -37,6 +37,58 @@ startButton.addEventListener('click', (event) => {
     if(on || win) {play();}
 });
 
+topLeft.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(1);
+        // check();
+        one();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+topRight.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(2);
+        // check();
+        two();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+bottomLeft.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(3);
+        // check();
+        three();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+bottomright.addEventListener('click', (event) => {
+    if (on) {
+        playerOrder.push(4);
+        // check();
+        four();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
 function play() {
     win = false;
     order = [];
@@ -120,4 +172,3 @@ function clearColor() {
     bottomleft.style.backgroundColor = "goldenrod";
     bottomright.style.backgroundColor = "darkblue";
 }
-
